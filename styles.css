@@ -35,7 +35,7 @@ p {
   color: #F5D7D5;
   /* font-family: 'Baloo Bhai', Futura, serif; */
   text-align: center;
-  -webkit-text-stroke: 5px #836B63;  /* Outline effect */
+  -webkit-text-stroke: 4px #836B63;  /* Outline effect */
 }
 
 .start-container {
@@ -61,10 +61,12 @@ p {
   width: 100%;
   border: none;
   font-family: 'Baloo Bhai', Futura, serif;
+  color: #836B63;
   font-size: 30px;
   cursor: pointer;  /* Having cursor change to a pointer when hovering */
 }
 
 .start-button:hover {
   background-color: #EFACC9;
+  color: #544540;
 }
