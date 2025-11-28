@@ -108,3 +108,9 @@ p {
   transform: scale(0.90);  /* Slightly reduce size when clicked */
   filter: drop-shadow(0 0 12px #F776AD);
 }
+
+.pet {
+  margin: 50px;
+  width: 550px;
+  height: auto;
+}
