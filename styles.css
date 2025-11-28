@@ -77,6 +77,14 @@ p {
   color: #544540;
 }
 
+.inner-button:active {
+  transform: scale(0.90);  /* Slightly reduce size when clicked */
+}
+
+.inner-button:disabled {
+  cursor: not-allowed;
+}
+
 .box-container {
   display: flex;
   justify-content: center;
@@ -94,4 +102,9 @@ p {
 .box:hover {
   transform: scale(1.15);  /* Slightly enlarge the box on hover */
   transition: transform 0.2s ease;
+}
+
+.box.selected {
+  transform: scale(0.90);  /* Slightly reduce size when clicked */
+  filter: drop-shadow(0 0 12px #F776AD);
 }
