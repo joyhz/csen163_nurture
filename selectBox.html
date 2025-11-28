@@ -6,7 +6,22 @@
         <title> Nurture </title>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body class="yellow_bg">
+    <body class="yellow-bg">
+        <h1 class="outlined-text"> pick a blind box </h1>
+        <div class="box-container">
+            <a href="meetBob.html"> <img src="images/box1.png" class="box"> </a>
+            <a href="meetBab.html"> <img src="images/box2.png" class="box"> </a>
+            <a href="meetBeb.html"> <img src="images/box3.png" class="box"> </a>
+        </div>
+        <div class="button-container">
+            <p class="button-title"> feeling lucky? </p>
+            <button class="inner-button" onclick="start()"> select </button>
+        </div>
 
+        <script>
+            function start() {
+                window.location.href = "selectBox.html";
+            }
+        </script>
     </body>
 </html>
