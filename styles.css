@@ -93,4 +93,5 @@ p {
 
 .box:hover {
   transform: scale(1.15);  /* Slightly enlarge the box on hover */
+  transition: transform 0.2s ease;
 }
