@@ -36,25 +36,31 @@ p {
   /* font-family: 'Baloo Bhai', Futura, serif; */
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
+  /* text-shadow: 2px 2px 4px #5e4c46; */
+  margin-bottom: 5px;
 }
 
-.start-container {
+.button-container {
   background-color: #836B63;
   border-radius: 8px;  /* Rounded corners */
   text-align: center;
   padding: 10px;
-  margin: 20% auto;
-  position: fixed, center;
   width: 20%;
   color: #FFFFFF;
+
+  /* margin: 15% auto; */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
 }
 
-.start-title {
+.button-title {
   margin-top: 10px;
   margin-bottom: 20px;  /* Space below the title */
 }
 
-.start-button {
+.inner-button {
   background-color: #F5D7D5;
   border-radius: 8px;  /* Rounded corners */
   padding: 15px 25px;
@@ -63,10 +69,28 @@ p {
   font-family: 'Baloo Bhai', Futura, serif;
   color: #836B63;
   font-size: 30px;
-  cursor: pointer;  /* Having cursor change to a pointer when hovering */
+  cursor: pointer;  /* Change cursor to pointer on hover */
 }
 
-.start-button:hover {
+.inner-button:hover {
   background-color: #EFACC9;
   color: #544540;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;  /* Space between boxes */
+  margin-top: 85px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 0;
+  cursor: pointer;  /* Change cursor to pointer on hover */
+}
+
+.box:hover {
+  transform: scale(1.15);  /* Slightly enlarge the box on hover */
 }
