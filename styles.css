@@ -1,1 +1,32 @@
+/* Setting the background color of the page */
+yellow_bg { 
+  background-color: #f8f1dd;
+  margin: 0;
+  padding: 0;
+}
 
+/* Setting general default font */
+body {
+  font-family: 'Baloo Bhaijaan 2';
+  text-align: center;
+}
+
+.start-container {
+  background-color: #836b63;
+  border-radius: 8px;  /* Rounded corners */
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+.start-title {
+  margin-button: 15px;  /* Space below the title */
+}
+
+.start-button {
+  background-color: #f5d7d5;
+  cursor: pointer;  /* Having cursor change to a pointer when hovering */
+}
+
+.start-button: hover {
+  background-color: #efacc9;
+}
