@@ -1,32 +1,69 @@
 /* Setting the background color of the page */
-yellow-bg { 
-  background-color: #f8f1dd;
+.yellow-bg { 
+  background-color: #F8F1DD;
   margin: 0;
   padding: 0;
 }
 
-/* Setting general default font */
-body {
-  font-family: 'Baloo Bhaijaan 2';
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 25px;
+}
+
+.brown-text {
+  color: #836B63;
+  font-family: 'Baloo Bhaijaan 2', Didot, serif;
   text-align: center;
 }
 
+.white-text {
+  color: #FFFFFF;
+  font-family: 'Baloo Bhaijaan 2', Didot, serif;
+  text-align: center;
+}
+
+.outlined-text {
+  color: #F5D7D5;
+  font-family: 'Baloo Bhaijaan 2', Didot, serif;
+  text-align: center;
+  -webkit-text-stroke: 3px #836B63;  /* Outline effect */
+}
+
 .start-container {
-  background-color: #836b63;
+  background-color: #836B63;
   border-radius: 8px;  /* Rounded corners */
-  padding: 20px;
+  text-align: center;
+  padding: 15px;
+  margin: 20% auto;
+  position: fixed, center;
+  width: 20%;
   color: #FFFFFF;
 }
 
 .start-title {
-  margin-button: 15px;  /* Space below the title */
+  margin-top: 10px;
+  margin-bottom: 20px;  /* Space below the title */
 }
 
 .start-button {
-  background-color: #f5d7d5;
+  background-color: #F5D7D5;
+  border-radius: 8px;  /* Rounded corners */
+  padding: 10px 20px;
+  width: 95%;
+  border: none;
+  font-family: 'Baloo Bhaijaan 2', Didot, serif;
+  font-size: 25px;
+  margin-bottom: 15px;  /* Space below the title */
   cursor: pointer;  /* Having cursor change to a pointer when hovering */
 }
 
-.start-button: hover {
-  background-color: #efacc9;
+.start-button:hover {
+  background-color: #EFACC9;
 }
