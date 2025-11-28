@@ -3,24 +3,50 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Nurture </title>
         <link rel="stylesheet" href="styles.css">
     </head>
+
     <body class="yellow-bg">
         <h1 class="outlined-text"> pick a blind box </h1>
+
         <div class="box-container">
-            <a href="meetBob.html"> <img src="images/box1.png" class="box"> </a>
-            <a href="meetBab.html"> <img src="images/box2.png" class="box"> </a>
-            <a href="meetBeb.html"> <img src="images/box3.png" class="box"> </a>
+            <img src="images/box1.png" class="box" data-target="meetBob.html">
+            <img src="images/box2.png" class="box" data-target="meetBeb.html">
+            <img src="images/box3.png" class="box" data-target="meetBab.html">
         </div>
+
         <div class="button-container">
             <p class="button-title"> feeling lucky? </p>
-            <button class="inner-button" onclick="start()"> select </button>
+            <button class="inner-button" onclick="start()" disabled> select </button>
         </div>
 
         <script>
+            let selectedTarget = null;
+
+            document.querySelectorAll('.box').forEach(box => {
+                box.addEventListener('click', () => {
+
+                    // Removing previous highlights
+                    document.querySelectorAll('.box').forEach(b => {
+                        b.classList.remove('selected');
+                    });
+
+                    // Highlighting clicked box
+                    box.classList.add('selected');
+
+                    // Storing destination page
+                    selectedTarget = box.getAttribute('data-target');
+
+                    // Enabling button to be clickable
+                    document.querySelector('.inner-button').disabled = false;
+                });
+            });
+
+            // Redirecting to selected page
             function start() {
-                window.location.href = "selectBox.html";
+                if (selectedTarget) {
+                    window.location.href = selectedTarget;
+                }
             }
         </script>
     </body>
