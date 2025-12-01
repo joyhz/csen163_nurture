@@ -110,6 +110,7 @@ p {
 }
 
 .pet {
+  margin-top: 0;
   margin: 50px;
   width: 550px;
   height: auto;
