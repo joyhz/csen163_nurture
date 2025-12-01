@@ -37,7 +37,7 @@ p {
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
   /* text-shadow: 2px 2px 4px #5e4c46; */
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .button-container {
