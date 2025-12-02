@@ -189,6 +189,6 @@ p { font-size: 25px; }
 .icon-container img {
     align-self: flex-end;
 }
-.icon, .icon-sustain { display: block; object-fit: contain; }
+/* .icon, .icon-sustain { display: block; object-fit: contain; } */
 .icon { width: 70px; height: auto; }
-.icon-sustain { width: 75px; height: auto; }
+/* .icon-sustain { width: 75px; height: auto; } */
