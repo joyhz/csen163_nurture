@@ -10,6 +10,10 @@
         <h1 class="outlined-text"> meet bob! </h1>
         <img src="images/BobReveal.png" class="pet">
 
+        <div class="button-container">
+            <button class="inner-button" onclick="start()" disabled> begin nurturing </button>
+        </div>
+
         <div class="button-container info-box">
             <h2 class="white-text button-title"> likes and dislikes </h2>
             <div class="inner-button info-content">
@@ -17,7 +21,7 @@
                 <ul>
                     <li> being organized </li>
                     <li> baking (especially cupcakes) </li>
-                    <l1> his best friend (you!) </l1>
+                    <li> his best friend (you!) </li>
                 </ul>
 
                 <h3> dislikes: </h3>
@@ -28,5 +32,11 @@
                 </ul>
             </div>
         </div>
+
+        <script>
+            function start() {
+                window.location.href = "room.html";
+            }
+        </script>
     </body>
 </html>
