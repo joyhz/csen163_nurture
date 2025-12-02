@@ -11,8 +11,6 @@
 
         <div class="box-container">
             <img src="images/box1.png" class="box" data-target="meetBob.html">
-            <img src="images/box2.png" class="box" data-target="meetBub.html">
-            <img src="images/box3.png" class="box" data-target="meetBab.html">
         </div>
 
         <div class="button-container">
@@ -21,7 +19,7 @@
         </div>
 
         <script>
-            let selectedTarget = null;
+            let selectedTarget = "meetBob.html";
 
             document.querySelectorAll('.box').forEach(box => {
                 box.addEventListener('click', () => {
@@ -31,11 +29,8 @@
                         b.classList.remove('selected');
                     });
 
-                    // Highlighting clicked box
+                    // Highlighting the clicked box
                     box.classList.add('selected');
-
-                    // Storing destination page
-                    selectedTarget = box.getAttribute('data-target');
 
                     // Enabling button to be clickable
                     document.querySelector('.inner-button').disabled = false;
