@@ -109,8 +109,7 @@ p { font-size: 25px; }
 
 /* Pet image on the pet introduction pages */
 .pet {
-  position: absolute;
-  left: 50px;
+  margin: 50px;
   width: 550px;
   height: auto;
 }
