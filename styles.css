@@ -83,7 +83,7 @@ p { font-size: 25px; }
 .box-container {
   display: flex;
   justify-content: center;
-  gap: 10px;  /* Space between boxes */
+  align-items: center;
   margin-top: 85px;
 }
 
