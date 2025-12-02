@@ -38,6 +38,12 @@ p { font-size: 25px; }
   margin-bottom: 5px;
 }
 
+.logo {
+  justify-content: center;
+  width: 500px;
+  height: auto;
+}
+
 .button-container {
   background-color: #836B63;
   border-radius: 8px;  /* Rounded corners */
