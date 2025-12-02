@@ -8,11 +8,12 @@
 
 /* Setting the background of the page to an image */
 .room-bg {
-  background-image: url("images/background.png");
-  background-size: contain;    /* Entire image always visible */
-  background-position: center;
+  background-image: url("images/room.png");
+  background-color: #876D5D;
+  background-size: auto;    /* Entire image always visible */
+  background-position: bottom;
   background-repeat: no-repeat;
-  object-fit: cover;
+  background-attachment: fixed;
 }
 
 h1 { font-size: 70px; margin-bottom: 5px; }
@@ -155,11 +156,22 @@ p { font-size: 25px; }
 }
 
 .pet {
-  display: block;
-  margin: auto;    /* Centering the image... */
-  bottom: 0;       /* ... at the bottom */
-  width: 550px;
+  /* display: block; */
+  /* margin: auto; */    /* Centering the image... */
+  /* 
+  position: fixed;
+  bottom: 5px;
+  width: 800px;
   height: auto;
+  */
+
+  position: fixed;
+  left: 50%;
+  bottom: 40px;        /* attach to bottom of viewport */
+  transform: translateX(-50%);  /* center horizontally */
+  width: 800px;
+  height: auto;
+  pointer-events: none; /* optional: prevents blocking clicks */
 }
 
 /* For displaying pet hunger, cleanliness, sustainability + task icons*/
