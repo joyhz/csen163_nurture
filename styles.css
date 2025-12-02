@@ -23,22 +23,21 @@ p { font-size: 25px; }
 
 .brown-text {
   color: #836B63;
-  /* font-family: 'Baloo Bhai', Futura, serif; */
+  font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
 }
 
 .white-text {
   color: #FFFFFF;
-  /* font-family: 'Baloo Bhai', Futura, serif; */
+  font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
 }
 
 .outlined-text {
   color: #F5D7D5;
-  /* font-family: 'Baloo Bhai', Futura, serif; */
+  font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
-  /* text-shadow: 2px 2px 4px #5e4c46; */
   margin-bottom: 5px;
 }
 
@@ -150,7 +149,8 @@ p { font-size: 25px; }
 }
 
 .pet {
-  image-align: center;
-  width: 250px;
+  margin: auto;    /* Centering the image... */
+  bottom: 0;       /* ... at the bottom */
+  width: 350px;
   height: auto;
 }
