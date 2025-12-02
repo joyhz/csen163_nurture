@@ -6,6 +6,7 @@
   font-family: 'Baloo Bhai', Futura, serif;
 }
 
+/* Setting the background of the page to an image */
 .room-bg {
   background-image: url("images/background.png");
   background-repeat: no-repeat;
