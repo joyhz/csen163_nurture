@@ -127,7 +127,7 @@ p { font-size: 25px; }
   cursor: default;
   font-size: 25px;
   text-align: left;
-  padding: 20px;
+  padding: 10px;
 }
 
 .info-content:hover, .info-content:active {
