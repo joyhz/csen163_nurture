@@ -10,8 +10,11 @@ h1 {
   font-size: 70px;
   margin-bottom: 5px;
 }
-h2 { font-size: 30px; }
-h3 { font-size: 27px; }
+
+h2 { font-size: 40px; }
+
+h3 { font-size: 30px; }
+
 p { font-size: 25px; }
 
 .brown-text {
@@ -32,14 +35,13 @@ p { font-size: 25px; }
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
   /* text-shadow: 2px 2px 4px #5e4c46; */
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
 
-/* Outer brown portion of the button/box */
 .button-container {
   background-color: #836B63;
   border-radius: 8px;  /* Rounded corners */
-  text-align: center;
+  /* text-align: center; */
   padding: 10px;
   width: 20%;
   color: #FFFFFF;
@@ -51,11 +53,11 @@ p { font-size: 25px; }
 }
 
 .button-title {
+  text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;  /* Space below the title */
 }
 
-/* Inner pink portion of the button/box */
 .inner-button {
   background-color: #F5D7D5;
   border-radius: 8px;  /* Rounded corners */
@@ -107,8 +109,8 @@ p { font-size: 25px; }
 
 /* Pet image on the pet introduction pages */
 .pet {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-top: 20px;
+  margin-left: 100px;
   width: 550px;
   height: auto;
 }
@@ -116,9 +118,14 @@ p { font-size: 25px; }
 /* Reusing button container for pet's information */
 .info-box {
   position: absolute;
-  top: 50px;
-  right: 50px;
-  width: 300px;
+  left: auto;
+  transform: none;
+
+  top: 160px;
+  right: 100px;
+
+  width: 380px;
+  height: 465px;
   padding: 10px;
 }
 
@@ -126,8 +133,18 @@ p { font-size: 25px; }
   cursor: default;
   font-size: 25px;
   text-align: left;
+  width: auto;
+  /*
+  display: block;
+  box-sizing: border-box;
+  */
+
   padding: 10px;
+  margin-top: 0px;
 }
+
+.info-content h3 { margin-top: 0; margin-bottom: 0; }
+.info-content ul { margin-top: 0; }
 
 .info-content:hover, .info-content:active {
   transform: none;            /* No hover/click animations */
