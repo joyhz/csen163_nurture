@@ -9,8 +9,10 @@
 /* Setting the background of the page to an image */
 .room-bg {
   background-image: url("images/background.png");
+  background-size: contain;    /* Entire image always visible */
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
 }
 
 h1 { font-size: 70px; margin-bottom: 5px; }
