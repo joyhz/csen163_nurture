@@ -13,10 +13,7 @@
   background-size: cover;
 }
 
-h1 {
-  font-size: 70px;
-  margin-bottom: 5px;
-}
+h1 { font-size: 70px; margin-bottom: 5px; }
 h2 { font-size: 40px; }
 h3 { font-size: 30px; }
 p { font-size: 25px; }
@@ -73,18 +70,13 @@ p { font-size: 25px; }
   cursor: pointer;  /* Change cursor to pointer on hover */
 }
 
-.inner-button:hover {
-  background-color: #EFACC9;
-  color: #544540;
-}
+.inner-button:hover { background-color: #EFACC9; color: #544540; }
 
 .inner-button:active {
   transform: scale(0.90);  /* Slightly reduce size when clicked */
 }
 
-.inner-button:disabled {
-  cursor: not-allowed;
-}
+.inner-button:disabled { cursor: not-allowed; }
 
 .box-container {
   display: flex;
@@ -164,7 +156,4 @@ p { font-size: 25px; }
   margin-top: 5px;
 }
 
-.icon {
-  width: 70px;
-  height: auto;
-}
+.icon { width: 70px; height: auto; }
