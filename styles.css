@@ -149,8 +149,9 @@ p { font-size: 25px; }
 }
 
 .pet {
+  display: block;
   margin: auto;    /* Centering the image... */
   bottom: 0;       /* ... at the bottom */
-  width: 350px;
+  width: 550px;
   height: auto;
 }
