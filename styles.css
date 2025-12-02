@@ -6,6 +6,13 @@
   font-family: 'Baloo Bhai', Futura, serif;
 }
 
+.room-bg {
+  background-image: url("images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 h1 {
   font-size: 70px;
   margin-bottom: 5px;
