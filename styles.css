@@ -112,7 +112,7 @@ p { font-size: 25px; }
 }
 
 /* Pet image on the pet introduction pages */
-.pet {
+.pet-intro {
   margin-top: 20px;
   margin-left: 100px;
   width: 550px;
@@ -147,4 +147,10 @@ p { font-size: 25px; }
   transform: none;            /* No hover/click animations */
   background-color: #F5D7D5;  /* Keeping original color */
   color: #836B63;             /* Keeping original text color */
+}
+
+.pet {
+  image-align: center;
+  width: 250px;
+  height: auto;
 }
