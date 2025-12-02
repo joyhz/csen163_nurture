@@ -186,9 +186,9 @@ p { font-size: 25px; }
   margin-right: 5px;
 }
 
+/*
 .icon-container img {
     align-self: flex-end;
-}
-/* .icon, .icon-clean { display: block; object-fit: contain; } */
-.icon-clean { width: 75px; height: auto; object-fit: contain; }
+}*/
+.icon-clean { height: 50px; width: auto; object-fit: contain; }
 .icon { width: 80px; height: auto; }
