@@ -10,5 +10,33 @@
         <h1 class="outlined-text"> meet bab! </h1>
         <img src="images/BabReveal.png" class="pet">
 
+        <div class="button-container">
+            <button class="inner-button" onclick="start()" disabled> begin nurturing </button>
+        </div>
+
+        <div class="button-container info-box">
+            <h2 class="white-text button-title"> likes and dislikes </h2>
+            <div class="inner-button info-content">
+                <h3> likes: </h3>
+                <ul>
+                    <li> fruit stands </li>
+                    <li> ambient lighting </li>
+                    <li> their best friend (you!) </li>
+                </ul>
+
+                <h3> dislikes: </h3>
+                <ul>
+                    <li> pesticides </li>
+                    <li> wasting electricity </li>
+                    <li> people who don't recycle </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function start() {
+                window.location.href = "babsRoom.html";
+            }
+        </script>
     </body>
 </html>
