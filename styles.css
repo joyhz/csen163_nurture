@@ -155,3 +155,16 @@ p { font-size: 25px; }
   width: 550px;
   height: auto;
 }
+
+/* For displaying pet hunger, cleanliness, sustainability + task icons*/
+.icon-container {
+  display: flex;
+  justify-content: right;
+  gap: 3px;
+  margin-top: 5px;
+}
+
+.icon {
+  width: 70px;
+  height: auto;
+}
