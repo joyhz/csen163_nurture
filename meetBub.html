@@ -10,5 +10,33 @@
         <h1 class="outlined-text"> meet bub! </h1>
         <img src="images/BubReveal.png" class="pet">
 
+        <div class="button-container">
+            <button class="inner-button" onclick="start()" disabled> begin nurturing </button>
+        </div>
+
+        <div class="button-container info-box">
+            <h2 class="white-text button-title"> likes and dislikes </h2>
+            <div class="inner-button info-content">
+                <h3> likes: </h3>
+                <ul>
+                    <li> farmers markets </li>
+                    <li> hiking </li>
+                    <li> her best friend (you!) </li>
+                </ul>
+
+                <h3> dislikes: </h3>
+                <ul>
+                    <li> pesticides </li>
+                    <li> seeing trash on trails </li>
+                    <li> turning on the heater </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function start() {
+                window.location.href = "bubsRoom.html";
+            }
+        </script>
     </body>
 </html>
