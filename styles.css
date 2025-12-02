@@ -24,12 +24,14 @@ p { font-size: 25px; }
   color: #836B63;
   font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
+  margin-top: 0px;
 }
 
 .white-text {
   color: #FFFFFF;
   font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
+  margin-top: 0px;
 }
 
 .outlined-text {
@@ -37,12 +39,15 @@ p { font-size: 25px; }
   font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
+  margin-top: 0px;
   margin-bottom: 5px;
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 0px;
   width: 700px;
   height: auto;
 }
