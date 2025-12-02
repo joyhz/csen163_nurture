@@ -183,5 +183,5 @@ p { font-size: 25px; }
   margin-right: 5px;
 }
 
-.icon { width: 70px; height: auto; }
+.icon-hunger, icon-clean { width: 70px; height: auto; }
 .icon-sustain { width: 80px; height: auto; }
