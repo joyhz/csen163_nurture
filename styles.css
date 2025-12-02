@@ -132,4 +132,5 @@ p { font-size: 25px; }
 .info-content:hover, .info-content:active {
   transform: none;            /* No hover/click animations */
   background-color: #F5D7D5;  /* Keeping original color */
+  color: #836B63;             /* Keeping original text color */
 }
