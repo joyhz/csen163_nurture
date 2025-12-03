@@ -181,13 +181,9 @@ p { font-size: 25px; }
   position: absolute;
   top: 0;
   right: 0;
-  gap: 5px;
-  margin-top: 5px;
-  margin-right: 5px;
+  gap: 8px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .icon-container img { height: 70px; width: auto; object-fit: contain; }
-/*
-.icon-clean { height: 70px; width: auto; object-fit: contain; }
-.icon { width: 75px; height: auto; }
-*/
