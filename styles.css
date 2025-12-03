@@ -40,7 +40,7 @@ p { font-size: 25px; }
   font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 5px;
 }
 
@@ -155,6 +155,10 @@ p { font-size: 25px; }
   color: #836B63;             /* Keeping original text color */
 }
 
+.need{
+  position:absolute;
+}
+
 .pet {
   /* display: block; */
   /* margin: auto; */    /* Centering the image... */
@@ -169,10 +173,11 @@ p { font-size: 25px; }
   left: 50%;
   bottom: 40px;        /* attach to bottom of viewport */
   transform: translateX(-50%);  /* center horizontally */
-  width: 800px;
-  height: auto;
+  width: 70;
+  height:70;
   pointer-events: none; /* optional: prevents blocking clicks */
 }
+
 
 /* For displaying pet hunger, cleanliness, sustainability + task icons*/
 .icon-container {
@@ -181,11 +186,20 @@ p { font-size: 25px; }
   position: absolute;
   top: 0;
   right: 0;
-  gap: 8px;
-  margin-top: 10px;
-  margin-right: 10px;
+  gap: 3px;
+  margin-top: 5px;
+  margin-right: 120px;
 }
 
-.icon-container img { height: 70px; width: auto; object-fit: contain; }
+.icon-container img {
+    align-self: flex-end;
+}
+/* .icon, .icon-clean { display: block; object-fit: contain; } */
+.icon-clean { width: 75px; height: auto; object-fit: contain; }
+.icon { width: 80px; height: auto; }
+
+.icon, .icon-clean{
+  margin-right: 120px;
+}
 
 
