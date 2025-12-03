@@ -28,13 +28,81 @@
                 top: calc(50% - 300px);
 
                 background-color: #F5D7D5;
-                text-align: center;
+                
 
                 transition: opacity 0.2s ease;
             }
 
+            #modalOutline {
+                font-family: 'Baloo Bhai', Futura, serif;
+                background-color: #836B63;
+                color: #fff;
+                text-align: center;
+
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .taskOption {
+                background-color: #EDC0BD;
+                color: #71615C;
+                border: 4px solid #836B63;
+                
+                padding: 15px;
+                margin: 10px auto;
+                width: 60%;
+                height: 100px;
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 20px;
+                font-weight: bold;
+
+                cursor: pointer;
+                text-align: left;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+
+            }
+
+            .taskOption img {
+                width: 50px;
+                vertical-align: middle;
+            }
+
+            #taskInfo {
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 20px;
+                margin: 20px;
+                text-align: center;
+                margin-top: 50px;
+            }
+
             #confirmTaskModal {
                 opacity: 0;
+            }
+
+            #confirmTasks {
+                display: flex;
+                justify-content: center;
+                
+                margin-top: 40px;
+                justify-content: space-around;
+                align-items: flex-end;
+
+                font-family: 'Baloo Bhai', Futura, serif;
+            }
+
+            .confirmButtons {
+                background-color: #F5D7D5;
+                color: #71615C;
+                border: none;
+                
+                padding: 30px;
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 28px;
+                font-weight: bold;
+
+                cursor: pointer;
             }
 
             #showCompletion {
@@ -42,10 +110,15 @@
             }
 
             .taskOption:disabled {
-                background-color: grey 0.3;
+                background-color: darkgray;
+                opacity: 0.5;
                 cursor: not-allowed;
             }
             
+            #showCompletion {
+                text-align: center;
+                
+            }
 
             
             .icons {
@@ -75,6 +148,7 @@
                 transition: opacity 0.2s ease;
             }
 
+
         </style>
     </head>
 
@@ -93,45 +167,50 @@
             
             <div class="icons">
                 <img src="images/sustain_80.png" class="icon" id="sustain">
-                <p class="iconLabel">Sustain</p>
+                <p class="iconLabel">Sustainability</p>
             </div>
             
             <div class="icons">
                 <img src="images/tasks.png" class="icon" id="taskButton">
                 <p class="iconLabel">Tasks</p>
             </div>
-        </div>
 
-        <!-- still needs expicon.png to be placed there! -->
+            <div class="icons" id="progressIcon">
+                <img src="images/expicon.png" class="icon" id="exp">
+                <p class="iconLabel"><img src="images/progress0.png" id="progress"></p>
+            </div>
+        </div>
 
 
 
         <div id="taskModal">
-            <div id="closeModal" onclick="taskModal.style.opacity=0;">
-                <p>x</p>
+            <div id="modalOutline">
+                <div id="closeModal" onclick="taskModal.style.opacity=0;">
+                    <p>x</p>
+                </div>
+                <h1 style="font-size: 40px">choose a task to complete for Bob</h1>
             </div>
-
-            <div class="modalOutline">
-                <h1>Choose a Task to Complete for Bob</h1>
-            </div>
+            
 
             <div id="tasks">
-                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')">Take out the trash</button>
-                <button class="taskOption" id="laundry" onclick="confirmDoTask('laundry')">Do the laundry </button>
-                <button class="taskOption" id="mealPrep" onclick="confirmDoTask('mealPrep')">Meal prep for the week</button>
+                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')"><img src="images/clean0 1.png">take out the trash and recycle</button>
+                <button class="taskOption" id="laundry" onclick="confirmDoTask('laundry')"><img src="images/hunger0 1.png">do the laundry</button>
+                <button class="taskOption" id="mealPrep" onclick="confirmDoTask('mealPrep')"><img src="images/sustain0 2.png">meal prep for the week</button>
             </div>
 
             <div id="confirmTaskModal">
                 <div id="taskInfo"></div>
                 <div id="confirmTasks">
-                    <button id="yesConfirm" onclick="doActiveTask()">Yes</button>
-                    <button id="notYetConfirm" onclick="showTasks()">Not Yet</button>
+                    <button class="confirmButtons" id="yesConfirm" onclick="doActiveTask()">yes</button>
+                    <button class="confirmButtons" id="notYetConfirm" onclick="showTasks()">not yet</button>
                 </div>
             </div>
 
             <div id="showCompletion">
-                <img src="images/FloralBobAfterEvolve.png" alt="star" id="evolution" style="width: 300px;">
-                <p>You and Bob finished all of your tasks!
+                <center>
+                <img src="images/FloralBobAfterEvolve.png" alt="star" id="evolution" style="width: 350px; display: none;">
+                </center>
+                <p style="margin:0">You and Bob finished all of your tasks!
                     <br>
                     Keep up the great work together!
                     <br>
@@ -154,11 +233,11 @@
                 activeTask = taskId;
 
                 if (taskId === "trash") {
-                    taskText = "Take out the trash: Increases cleanliness by 20 points.";
+                    taskText = "did you complete this task?<br><br><br>take out the trash and recycle<br>(+20 cleanliness)";
                 } else if (taskId === "laundry") {
-                    taskText = "Do the laundry: Increases sustainability by 20 points.";
+                    taskText = "did you complete this task?<br><br><br>do your laundry<br>(+20 sustainability)";
                 } else if (taskId === "mealPrep") {
-                    taskText = "Meal prep for the week: Increases hunger by 20 points.";
+                    taskText = "did you complete this task?<br><br><br>meal prep for the week<br>(+20 hunger)";
                 }
 
                 taskInfo.innerHTML = `<p>${taskText}</p>`;
@@ -181,6 +260,7 @@
             function showCompletion() {
                 document.getElementById("showCompletion").style.opacity = 1;
                 document.getElementById("showCompletion").style.display = "block";
+                document.getElementById("evolution").style.display = "block";
                 document.getElementById("tasks").style.opacity = 0;
                 document.getElementById("tasks").style.display = "none";
                 document.getElementById("confirmTaskModal").style.opacity = 0;
@@ -207,6 +287,14 @@
                         document.getElementById("clean").src = "images/clean_100.png";
                     } else if(activeTask === "mealPrep") {
                         document.getElementById("hunger").src = "images/hunger_100.png";
+                    }
+
+                    if(completedTasks.length === 1) {
+                        document.getElementById("progress").src = "images/progress40.png";
+                    } else if(completedTasks.length === 2) {
+                        document.getElementById("progress").src = "images/progress80.png";
+                    } else if(completedTasks.length === 3) {
+                        document.getElementById("progress").src = "images/progress100.png";
                     }
 
                     document.getElementById(activeTask).disabled = true; // makes button unlcickable
