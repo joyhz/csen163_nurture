@@ -4,17 +4,227 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+
+        <style>
+            #closeModal {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+            }
+
+            #taskButton {
+                cursor: pointer;
+            }
+
+            #taskModal {
+                opacity: 0;
+                width: 60%;
+                height: 600px;
+
+                position: fixed;
+                z-index: 1;
+                left: calc(50% - 30%);
+                top: calc(50% - 300px);
+
+                background-color: #F5D7D5;
+                text-align: center;
+
+                transition: opacity 0.2s ease;
+            }
+
+            #confirmTaskModal {
+                opacity: 0;
+            }
+
+            #showCompletion {
+                opacity: 0;
+            }
+
+            .taskOption:disabled {
+                background-color: grey 0.3;
+                cursor: not-allowed;
+            }
+            
+
+            
+            .icons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+                font-family: 'Baloo Bhai', Futura, serif;
+
+            }
+
+            .icons:hover .icon {
+                transform: scale(1.05);
+                transition: transform 0.1s ease;
+            }
+            
+            .iconLabel {
+                opacity: 0;
+                font-size: 15px;
+                color: #836B63;
+                margin-top: 1px;
+            }
+            
+            .icons:hover, .icon:hover + .iconLabel {
+                opacity: 1;
+                transition: opacity 0.2s ease;
+            }
+
+        </style>
     </head>
 
     <body class="room-bg">
-        <img src="images/Bob.png" class="pet">
+        <img src="images/Bob.png" class="pet" id="bob">
         <div class="icon-container">
-            <img src="images/hunger_80.png" class="icon">
-            <img src="images/clean_80.png" class="icon">
-            <img src="images/sustain_80.png" class="icon">
-            <img src="images/tasks.png" class="icon">
+            <div class="icons">
+                <img src="images/hunger_80.png" class="icon" id="hunger">
+                <p class="iconLabel">Hunger</p>
+            </div>
+
+            <div class="icons">
+                <img src="images/clean_80.png" class="icon" id="clean">
+                <p class="iconLabel">Clean</p>
+            </div>
+            
+            <div class="icons">
+                <img src="images/sustain_80.png" class="icon" id="sustain">
+                <p class="iconLabel">Sustain</p>
+            </div>
+            
+            <div class="icons">
+                <img src="images/tasks.png" class="icon" id="taskButton">
+                <p class="iconLabel">Tasks</p>
+            </div>
         </div>
 
         <!-- still needs expicon.png to be placed there! -->
+
+
+
+        <div id="taskModal">
+            <div id="closeModal" onclick="taskModal.style.opacity=0;">
+                <p>x</p>
+            </div>
+
+            <div class="modalOutline">
+                <h1>Choose a Task to Complete for Bob</h1>
+            </div>
+
+            <div id="tasks">
+                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')">Take out the trash</button>
+                <button class="taskOption" id="laundry" onclick="confirmDoTask('laundry')">Do the laundry </button>
+                <button class="taskOption" id="mealPrep" onclick="confirmDoTask('mealPrep')">Meal prep for the week</button>
+            </div>
+
+            <div id="confirmTaskModal">
+                <div id="taskInfo"></div>
+                <div id="confirmTasks">
+                    <button id="yesConfirm" onclick="doActiveTask()">Yes</button>
+                    <button id="notYetConfirm" onclick="showTasks()">Not Yet</button>
+                </div>
+            </div>
+
+            <div id="showCompletion">
+                <img src="images/FloralBobAfterEvolve.png" alt="star" id="evolution" style="width: 300px;">
+                <p>You and Bob finished all of your tasks!
+                    <br>
+                    Keep up the great work together!
+                    <br>
+                    Bob has leveled up!
+                </p>
+
+            </div>
+        </div>
+
+        <script>
+            const taskButton = document.getElementById("taskButton");
+            const taskModal = document.getElementById("taskModal");
+            const taskIconLabel = document.getElementsByClassName("tasks");
+            let activeTask;
+            let completedTasks = [];
+
+            function confirmDoTask(taskId) {
+                const taskInfo = document.getElementById("taskInfo");
+                let taskText = "";
+                activeTask = taskId;
+
+                if (taskId === "trash") {
+                    taskText = "Take out the trash: Increases cleanliness by 20 points.";
+                } else if (taskId === "laundry") {
+                    taskText = "Do the laundry: Increases sustainability by 20 points.";
+                } else if (taskId === "mealPrep") {
+                    taskText = "Meal prep for the week: Increases hunger by 20 points.";
+                }
+
+                taskInfo.innerHTML = `<p>${taskText}</p>`;
+                document.getElementById("confirmTaskModal").style.opacity = 1;
+                document.getElementById("confirmTaskModal").style.display = "block";
+
+                document.getElementById("tasks").style.opacity = 0;
+                document.getElementById("tasks").style.display = "none";
+            }
+            taskButton.onclick = function() {
+                taskModal.style.opacity = 1;
+
+                if(completedTasks.length > 2) {
+                    showCompletion();
+                } else {
+                    document.getElementById("tasks").style.opacity = 1;
+                }
+            };
+
+            function showCompletion() {
+                document.getElementById("showCompletion").style.opacity = 1;
+                document.getElementById("showCompletion").style.display = "block";
+                document.getElementById("tasks").style.opacity = 0;
+                document.getElementById("tasks").style.display = "none";
+                document.getElementById("confirmTaskModal").style.opacity = 0;
+                document.getElementById("confirmTaskModal").style.display = "none";
+            }
+
+            function showTasks() {
+                document.getElementById("tasks").style.opacity = 1;
+                document.getElementById("tasks").style.display = "block";
+
+                document.getElementById("confirmTaskModal").style.opacity = 0;
+                document.getElementById("confirmTaskModal").style.display = "none";
+                document.getElementById("showCompletion").style.opacity = 0;
+                document.getElementById("showCompletion").style.display = "none";
+            }
+
+            function doActiveTask() {
+                if (activeTask) {
+                    completedTasks.push(activeTask);
+
+                    if(activeTask === "trash") {
+                        document.getElementById("sustain").src = "images/sustain_100.png";
+                    } else if(activeTask === "laundry") {
+                        document.getElementById("clean").src = "images/clean_100.png";
+                    } else if(activeTask === "mealPrep") {
+                        document.getElementById("hunger").src = "images/hunger_100.png";
+                    }
+
+                    document.getElementById(activeTask).disabled = true; // makes button unlcickable
+                    showTasks();
+
+                    if(completedTasks.length > 2) {
+                        showCompletion();
+                        document.getElementById("bob").src = "images/FloralBob.png";
+                    }
+                }
+            }
+            
+
+
+
+
+
+        </script>
+
     </body>
 </html>
