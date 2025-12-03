@@ -40,7 +40,7 @@ p { font-size: 25px; }
   font-family: 'Baloo Bhai', Futura, serif;
   text-align: center;
   -webkit-text-stroke: 4px #836B63;  /* Outline effect */
-  margin-top: 0px;
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
