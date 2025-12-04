@@ -282,12 +282,12 @@
                 if (activeTask) {
                     completedTasks.push(activeTask);
 
-                    if(activeTask === "trash") {
-                        document.getElementById("sustain").src = "images/sustain_100.png";
-                    } else if(activeTask === "laundry") {
-                        document.getElementById("clean").src = "images/clean_100.png";
-                    } else if(activeTask === "food") {
+                    if(activeTask === "food") {
                         document.getElementById("hunger").src = "images/hunger_100.png";
+                    } else if(activeTask === "trash") {
+                        document.getElementById("clean").src = "images/clean_100.png";
+                    } else if(activeTask === "shower") {
+                        document.getElementById("sustain").src = "images/sustain_100.png";
                     }
 
                     if(completedTasks.length === 1) {
