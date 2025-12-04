@@ -193,9 +193,9 @@
             
 
             <div id="tasks">
-                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')"><img src="images/clean0 1.png">take out the trash and recycle</button>
-                <button class="taskOption" id="laundry" onclick="confirmDoTask('laundry')"><img src="images/hunger0 1.png">do the laundry</button>
-                <button class="taskOption" id="mealPrep" onclick="confirmDoTask('mealPrep')"><img src="images/sustain0 2.png">meal prep for the week</button>
+                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')"><img src="images/clean0 1.png">tidy up your room/desk</button>
+                <button class="taskOption" id="shower" onclick="confirmDoTask('shower')"><img src="images/sustain0 2.png">take a shorter/colder shower</button>
+                <button class="taskOption" id="food" onclick="confirmDoTask('food')"><img src="images/hunger0 1.png">eat a cup of fruit/veg</button>
             </div>
 
             <div id="confirmTaskModal">
@@ -233,11 +233,11 @@
                 activeTask = taskId;
 
                 if (taskId === "trash") {
-                    taskText = "did you complete this task?<br><br><br>take out the trash and recycle<br>(+20 cleanliness)";
-                } else if (taskId === "laundry") {
-                    taskText = "did you complete this task?<br><br><br>do your laundry<br>(+20 sustainability)";
-                } else if (taskId === "mealPrep") {
-                    taskText = "did you complete this task?<br><br><br>meal prep for the week<br>(+20 hunger)";
+                    taskText = "did you complete this task?<br><br><br>tidy up your room/desk<br>(+20 cleanliness)";
+                } else if (taskId === "shower") {
+                    taskText = "did you complete this task?<br><br><br>take a shorter/colder shower<br>(+20 sustainability)";
+                } else if (taskId === "food") {
+                    taskText = "did you complete this task?<br><br><br>eat a cup of fruit/veg<br>(+20 hunger)";
                 }
 
                 taskInfo.innerHTML = `<p>${taskText}</p>`;
@@ -285,7 +285,7 @@
                         document.getElementById("sustain").src = "images/sustain_100.png";
                     } else if(activeTask === "laundry") {
                         document.getElementById("clean").src = "images/clean_100.png";
-                    } else if(activeTask === "mealPrep") {
+                    } else if(activeTask === "food") {
                         document.getElementById("hunger").src = "images/hunger_100.png";
                     }
 
