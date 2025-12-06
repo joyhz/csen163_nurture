@@ -1,18 +1,465 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <style>
+            #closeModal {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+            }
+
+            #taskButton {
+                cursor: pointer;
+            }
+
+            #taskModal {
+                opacity: 0;
+                width: 60%;
+                height: 600px;
+
+                position: fixed;
+                z-index: 1;
+                left: calc(50% - 30%);
+                top: calc(50% - 300px);
+
+                background-color: #F5D7D5;
+                
+
+                transition: opacity 0.2s ease;
+            }
+
+            #modalOutline {
+                font-family: 'Baloo Bhai', Futura, serif;
+                background-color: #836B63;
+                color: #fff;
+                text-align: center;
+
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .taskOption {
+                background-color: #EDC0BD;
+                color: #71615C;
+                border: 4px solid #836B63;
+                
+                padding: 15px;
+                margin: 10px auto;
+                width: 60%;
+                height: 100px;
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 20px;
+                font-weight: bold;
+
+                cursor: pointer;
+                text-align: left;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+
+            }
+
+            .taskOption img {
+                width: 50px;
+                vertical-align: middle;
+            }
+
+            #taskInfo {
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 20px;
+                margin: 20px;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            #confirmTaskModal {
+                opacity: 0;
+            }
+
+            #confirmTasks {
+                display: flex;
+                justify-content: center;
+                
+                margin-top: 40px;
+                justify-content: space-around;
+                align-items: flex-end;
+
+                font-family: 'Baloo Bhai', Futura, serif;
+            }
+
+            .confirmButtons {
+                background-color: #F5D7D5;
+                color: #71615C;
+                border: none;
+                
+                padding: 30px;
+                font-family: 'Baloo Bhai', Futura, serif;
+                font-size: 28px;
+                font-weight: bold;
+
+                cursor: pointer;
+            }
+
+            #showCompletion {
+                opacity: 0;
+            }
+
+            .taskOption:disabled {
+                background-color: darkgray;
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            
+            #showCompletion {
+                text-align: center;
+                
+            }
+
+            
+            .icons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+                font-family: 'Baloo Bhai', Futura, serif;
+
+            }
+
+            .icons:hover .icon {
+                transform: scale(1.05);
+                transition: transform 0.1s ease;
+            }
+            
+            .iconLabel {
+                opacity: 0;
+                font-size: 15px;
+                color: #836B63;
+                margin-top: 1px;
+            }
+            
+            .icons:hover, .icon:hover + .iconLabel {
+                opacity: 1;
+                transition: opacity 0.2s ease;
+            }
+
+
+        </style>
     </head>
 
     <body class="room-bg">
-        <img src="images/Bob.png" class="pet">
-        <div class="icon-container">
-            <img src="images/hunger_80.png" class="icon">
-            <img src="images/clean_100.png" class="icon-clean">
-            <img src="images/sustain_80.png" class="icon">
-            <img src="images/tasks.png" class="icon">
+                <img src="images/Bob.png" class="pet" id="bob">
+                <img src='images/NeedClean.png' class="need">
+
+                        <div class="icon-container">
+            <div class="icons">
+                <img src="images/hunger_80.png" class="icon" id="hunger">
+                <p class="iconLabel">Hunger</p>
+            </div>
+
+            <div class="icons">
+                <img src="images/clean_80.png" class="icon" id="clean">
+                <p class="iconLabel">Clean</p>
+            </div>
+            
+            <div class="icons">
+                <img src="images/sustain_80.png" class="icon" id="sustain">
+                <p class="iconLabel">Sustainability</p>
+            </div>
+            
+            <div class="icons">
+                <img src="images/tasks.png" class="icon" id="taskButton">
+                <p class="iconLabel">Tasks</p>
+            </div>
+
+            <div class="icons" id="progressIcon">
+                <img src="images/expicon.png" class="icon" id="exp">
+                <p class="iconLabel"><img src="images/progress0.png" id="progress"></p>
+            </div>
+
+            <div class="icons">
+                <img src="images/help.png" class="icon" id="help">
+                <p class = "iconLabel"> Tutorial</p>
+
+            </div>
+        
         </div>
+
+        <img src = "images/1.png" class="tutorial" id="p1">
+
+        
+
+<style>
+    .pet {
+        position: absolute;
+        left: 200px; /* starting position */
+        top: 200px;
+        transition: transform 0.1s linear;
+    }
+</style>
+
+<style>
+    .pet {
+        position: absolute;
+        left: 50%;       /* start at center of screen */
+        top: 200px;
+        transform: translateX(-50%); /* center the sprite */
+    }
+</style>
+
+ <div id="taskModal">
+            <div id="modalOutline">
+                <div id="closeModal" onclick="taskModal.style.opacity=0;">
+                    <p>x</p>
+                </div>
+                <h1 style="font-size: 40px">choose a task to complete for Bob</h1>
+            </div>
+            
+
+            <div id="tasks">
+                <button class="taskOption" id="trash" onclick="confirmDoTask('trash')"><img src="images/clean0 1.png">tidy up your room/desk</button>
+                <button class="taskOption" id="laundry" onclick="confirmDoTask('laundry')"><img src="images/sustain0 2.png">take a shorter/colder shower</button>
+                <button class="taskOption" id="mealPrep" onclick="confirmDoTask('mealPrep')"><img src="images/hunger0 1.png">eat a cup of fruit/veg</button>
+            </div>
+
+            <div id="confirmTaskModal">
+                <div id="taskInfo"></div>
+                <div id="confirmTasks">
+                    <button class="confirmButtons" id="yesConfirm" onclick="doActiveTask()">yes</button>
+                    <button class="confirmButtons" id="notYetConfirm" onclick="showTasks()">not yet</button>
+                </div>
+            </div>
+
+            <div id="showCompletion">
+                <center>
+                <img src="images/FloralBobAfterEvolve.png" alt="star" id="evolution" style="width: 20%; display: none;">
+                </center>
+                <p style="margin:0">You and Bob finished all of your tasks!
+                    <br>
+                    Keep up the great work together!
+                    <br>
+                    Bob has leveled up!
+                </p>
+
+            </div>
+        </div>
+
+        <script>
+            const taskButton = document.getElementById("taskButton");
+            const taskModal = document.getElementById("taskModal");
+            const taskIconLabel = document.getElementsByClassName("tasks");
+            const tButton = document.getElementById("help");
+
+            var HideNeed = 0;
+            let activeTask;
+            let completedTasks = [];
+
+            const walkList = [
+            "images/Bob.png",
+            "images/BobWalking1.png",
+            "images/BobWalking2.png",
+            "images/BobUpgrade.png"
+            ];//walk images
+
+            const needList = [
+        "images/NeedHunger.png",
+        "images/NeedSustain.png",
+        "images/NeedClean.png",
+        ];
+
+
+            const pet = document.querySelector(".pet");
+            const need = document.querySelector(".need");
+
+
+const tutorials = [
+    "images/1.png",
+    "images/2.png",
+    "images/3.png",
+];
+
+const tutorial = document.getElementById("p1");
+let tutorialCount = 0;
+
+tutorial.addEventListener("click", function () { 
+
+    tutorialCount++;
+
+    tutorial.src = tutorials[tutorialCount]; 
+
+    if (tutorialCount >= tutorials.length) {
+        tutorialCount = 0;
+       tutorial.style.visibility = "hidden";   
+       tutorial.src=tutorials[0];  
+    }
+
+});
+
+tButton.addEventListener("click", function () {   
+    tutorial.style.visibility = "visible";        
+    tutorial.style.pointerEvents = "auto";        
+});
+
+            let rect = pet.getBoundingClientRect();
+            let petX = rect.left + rect.width / 2;
+
+            need.style.left  = rect.left + "px";
+            need.style.top   = (rect.top - 40) + "px";
+
+
+    function sleep(ms) {//walk left only function
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function walkanime(startX, targetX) {
+        if (targetX >= startX) return;  // ignore right-side clicks
+
+        let step = -10;  // always walk left
+
+        while (startX > targetX + 2) {
+
+            // alternate walking frames
+            pet.src = pet.src.includes(walkList[1]) ? walkList[2] : walkList[1];
+
+            startX += step;
+            pet.style.left = startX + "px";
+
+            await sleep(140);
+        }
+
+        // stop on static sprite
+        pet.src = walkList[3];
+        await sleep(300);
+
+        if(completedTasks.length > 2) {
+                        document.getElementById("bob").src = "images/FloralBob.png";
+        }
+        else{pet.src = walkList[0];}
+    }
+
+document.addEventListener("click", async function(event) {
+    let rect = pet.getBoundingClientRect();
+    let petX = rect.left + rect.width / 2;
+    let clickX = event.clientX;
+
+
+    // hide need
+    need.style.opacity = '0';
+
+    // IMPORTANT — only ONE call, and await it
+    await walkanime(petX, clickX);
+
+    // get new position AFTER walking
+    rect = pet.getBoundingClientRect();
+
+        if (HideNeed ==0){
+    need.style.left  = rect.left + "px";
+    need.style.top   = (rect.top - 40) + "px";
+    need.style.opacity = '1';   // show again
+
+        
+    }
+});
+
+
+
+            function confirmDoTask(taskId) {
+                const taskInfo = document.getElementById("taskInfo");
+                let taskText = "";
+                activeTask = taskId;
+
+                if (taskId === "trash") {
+                    taskText = "did you complete this task?<br><br><br>tidy up your room/desk<br>(+20 cleanliness)";
+                } else if (taskId === "laundry") {
+                    taskText = "did you complete this task?<br><br><br>take a shorter/colder shower<br>(+20 sustainability)";
+                } else if (taskId === "mealPrep") {
+                    taskText = "did you complete this task?<br><br><br>eat a cup of fruit/veg<br>(+20 hunger)";
+                }
+
+                taskInfo.innerHTML = `<p>${taskText}</p>`;
+                document.getElementById("confirmTaskModal").style.opacity = 1;
+                document.getElementById("confirmTaskModal").style.display = "block";
+
+                document.getElementById("tasks").style.opacity = 0;
+                document.getElementById("tasks").style.display = "none";
+            }
+            taskButton.onclick = function() {
+                taskModal.style.opacity = 1;
+
+                if(completedTasks.length > 2) {
+                    showCompletion();
+                } else {
+                    document.getElementById("tasks").style.opacity = 1;
+                }
+            };
+
+            function showCompletion() {
+                document.getElementById("showCompletion").style.opacity = 1;
+                document.getElementById("showCompletion").style.display = "block";
+                document.getElementById("evolution").style.display = "block";
+                document.getElementById("tasks").style.opacity = 0;
+                document.getElementById("tasks").style.display = "none";
+                document.getElementById("confirmTaskModal").style.opacity = 0;
+                document.getElementById("confirmTaskModal").style.display = "none";
+            }
+
+            function showTasks() {
+                document.getElementById("tasks").style.opacity = 1;
+                document.getElementById("tasks").style.display = "block";
+
+                document.getElementById("confirmTaskModal").style.opacity = 0;
+                document.getElementById("confirmTaskModal").style.display = "none";
+                document.getElementById("showCompletion").style.opacity = 0;
+                document.getElementById("showCompletion").style.display = "none";
+            }
+
+            function doActiveTask() {
+                if (activeTask) {
+                    completedTasks.push(activeTask);
+
+                    if(activeTask === "trash") {
+                        document.getElementById("clean").src = "images/clean_100.png";
+                        need.style.opacity=0;
+                        HideNeed = 1;
+                        
+                    } else if(activeTask === "laundry") {
+                        document.getElementById("sustain").src = "images/sustain_100.png";
+                    } else if(activeTask === "mealPrep") {
+                        document.getElementById("hunger").src = "images/hunger_100.png";
+                    }
+
+                    if(completedTasks.length === 1) {
+                        document.getElementById("progress").src = "images/progress40.png";
+                    } else if(completedTasks.length === 2) {
+                        document.getElementById("progress").src = "images/progress80.png";
+                    } else if(completedTasks.length === 3) {
+                        document.getElementById("progress").src = "images/progress100.png";
+                    }
+
+                    document.getElementById(activeTask).disabled = true; // makes button unlcickable
+                    showTasks();
+
+                    if(completedTasks.length > 2) {
+                        showCompletion();
+                        document.getElementById("bob").src = "images/FloralBob.png";
+                    }
+                }
+            }
+            
+
+
+
+
+
+</script>
+
+    
+
+
     </body>
+
 </html>

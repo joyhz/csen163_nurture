@@ -155,6 +155,22 @@ p { font-size: 25px; }
   color: #836B63;             /* Keeping original text color */
 }
 
+.need{
+  position:absolute;
+}
+
+.tutorial {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1440px;
+    height:1024px;      /* or whatever size you want */
+    z-index: 9999;     /* make sure it stays on top */
+    cursor: pointer;
+}
+
 .pet {
   /* display: block; */
   /* margin: auto; */    /* Centering the image... */
@@ -169,10 +185,11 @@ p { font-size: 25px; }
   left: 50%;
   bottom: 40px;        /* attach to bottom of viewport */
   transform: translateX(-50%);  /* center horizontally */
-  width: 800px;
-  height: auto;
+  width: 70;
+  height:70;
   pointer-events: none; /* optional: prevents blocking clicks */
 }
+
 
 /* For displaying pet hunger, cleanliness, sustainability + task icons*/
 .icon-container {
@@ -183,7 +200,7 @@ p { font-size: 25px; }
   right: 0;
   gap: 3px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-right: 120px;
 }
 
 .icon-container img {
@@ -192,3 +209,9 @@ p { font-size: 25px; }
 /* .icon, .icon-clean { display: block; object-fit: contain; } */
 .icon-clean { width: 75px; height: auto; object-fit: contain; }
 .icon { width: 80px; height: auto; }
+
+.icon, .icon-clean{
+  margin-right: 120px;
+}
+
+
